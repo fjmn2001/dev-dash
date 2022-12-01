@@ -11,23 +11,23 @@ import { ReactComponent as Start } from "./star.svg";
 import { ReactComponent as Unlock } from "./unlock.svg";
 import { ReactComponent as Watchers } from "./watchers.svg";
 
+const isoToReadableDate = (lastUpdate: string): string => {
+	const lastUpdateDate = new Date(lastUpdate);
+	const currentDate = new Date();
+	const diffDays = currentDate.getDate() - lastUpdateDate.getDate();
+
+	if (diffDays === 0) {
+		return "today";
+	}
+
+	if (diffDays > 30) {
+		return "more than a month ago";
+	}
+
+	return `${diffDays} days ago`;
+};
+
 export const Dashboard = () => {
-	const isoToReadableDate = (lastUpdate: string): string => {
-		const lastUpdateDate = new Date(lastUpdate);
-		const currentDate = new Date();
-		const diffDays = currentDate.getDate() - lastUpdateDate.getDate();
-
-		if (diffDays === 0) {
-			return "today";
-		}
-
-		if (diffDays > 30) {
-			return "more than a month ago";
-		}
-
-		return `${diffDays} days ago`;
-	};
-
 	return (
 		<>
 			<header className={styles.header}>
