@@ -32,9 +32,8 @@ const isoToReadableDate = (lastUpdate: string): string => {
 	return `${diffDays} days ago`;
 };
 
-const repository = new GitHubApiGitHubRepositoryRepository(config.github_access_token);
-
 export const Dashboard = () => {
+	const repository = new GitHubApiGitHubRepositoryRepository(config.github_access_token);
 	const [repositoryData, setRepositoryData] = useState<GitHubApiResponses[]>([]);
 
 	useEffect(() => {
